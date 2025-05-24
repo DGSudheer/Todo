@@ -1,7 +1,12 @@
 import "./App.css";
+import { ProductList } from "./ProductList.jsx";
 
 function App() {
-  return <p> <a href="http://localhost:5173/">Hello World!</a> </p>
+  return (
+    <div>
+      <ProductList/>
+    </div>
+  );
 }
 
-export default App;
+export default App; 
