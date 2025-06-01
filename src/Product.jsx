@@ -11,4 +11,4 @@ function Product({title, description, price, text}){
     );
 }
 
-export { Product };
+export { Product } ;

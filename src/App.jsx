@@ -1,10 +1,12 @@
 import "./App.css";
 import { ProductList } from "./ProductList.jsx";
+import  Like  from "./Like.jsx";
 
 function App() {
   return (
     <div>
-      <ProductList/>
+      <p>Did you Like me?</p>
+      <Like/>
     </div>
   );
 }
