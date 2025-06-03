@@ -8,9 +8,9 @@ function App() {
   return (
     <div>
       <Ludoboard colour="blue"/>
-      <Ludoboard colour="yellow"/>
+{/*       <Ludoboard colour="yellow"/>
       <Ludoboard colour="green"/>
-      <Ludoboard colour="red"/>
+      <Ludoboard colour="red"/> */}
     </div>
   );
 }
