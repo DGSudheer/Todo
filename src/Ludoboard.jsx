@@ -3,9 +3,14 @@ import "./Ludoboard.css";
 
 export default function Ludoboard({colour}){
     let [moves, setMoves] = useState({blue:0, red:0, green:0, yellow:0});
+    let [arr, setArr] = useState(["no move"]);
+
     let bCount = () => {
         setMoves((prev)=>{
             return ({...prev, blue: prev.blue+1})
+        });
+        setArr((prevArr) => {
+            return([...prevArr, "blue moves"])
         })
     }
 
@@ -29,6 +34,7 @@ export default function Ludoboard({colour}){
 
     return (
         <div>
+            <p>Blue Array: {arr}</p>
             <p>Blue Moves={moves.blue}</p>
             <button style={{backgroundColor: "blue"}} onClick={bCount}>Blue Count+1</button>
             <p>Red Moves={moves.red}</p>
