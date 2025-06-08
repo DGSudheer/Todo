@@ -11,7 +11,7 @@ export default function Todo() {
     }
     let addNew = ()=>{
         setTodo((todo)=>{
-            return ([...todo, {task:newTodo, id:uuidv4()}])
+            return ([...todo, {task:newTodo, id:uuidv4(), isDone:false}])
         })
         setNewTodo("")
     }
@@ -63,6 +63,25 @@ export default function Todo() {
             })
         )
     }
+    let markAllDone = () => {
+        setTodo((prev)=>
+            prev.map((t)=>{
+                return{
+                    ...t, isDone: true
+                }
+            })
+        )
+    }
+    let markDone = (id) => {
+        setTodo((prev)=>
+            prev.map((t)=>{
+                if(t.id===id)
+                    return{...t, isDone: true}
+                else 
+                    return t;
+            })
+        )
+    }
 
     return(
         <div>
@@ -76,17 +95,22 @@ export default function Todo() {
                 {
                     todo.map((t)=>{
                         return(
-                            <li key={t.id}>{t.task}
+                            <li key={t.id}> 
+                                <span style={t.isDone ? {textDecorationLine: "line-through", textDecorationColor: "red"} : {}}>
+                                    {t.task}
+                                </span>
                                 <button onClick={()=>deleteTask(t.id)}>Delete</button>
                                 <button onClick={()=>makeUpper(t.id)}>UPPER</button>
                                 <button onClick={()=>makeLower(t.id)}>lower</button>
+                                <button onClick={()=>markDone(t.id)}>mark as done</button>
                             </li>
                         )
                     })
                 }
             </ul>
             <button onClick={makeAllUpper}>Make All Upper</button> &nbsp; &nbsp;
-            <button onClick={makeAllLower}>Make All Lower</button>
+            <button onClick={makeAllLower}>Make All Lower</button> &nbsp; &nbsp;
+            <button onClick={markAllDone}>Mark All as Done</button>
         </div>
     )
 }
