@@ -16,6 +16,17 @@ export default function TodoList () {
         setNewtodo("");
     }
 
+    let delTask = (id) => {
+        setTodo(todo.filter((i)=>i.id!=id))
+    }
+
+    let makeUpper = () =>{
+        setTodo(todo.map((i)=>{
+            return{
+                ...i, task:i.task.toUpperCase()
+            }
+        }))
+    }
 
     return(
         <div>
@@ -29,11 +40,17 @@ export default function TodoList () {
             <h3>Tasks todo</h3>
             <ul>
                 {
-                    todo.map((e)=>{
-                        return <li key={e.id}>{e.task}</li>
-                    })
+                    todo.map((e)=>
+                        (
+                            <li key={e.id}>{e.task}
+                                &nbsp;&nbsp;&nbsp;
+                                <button onClick={() => delTask(e.id)}>Delete</button>
+                            </li>
+                        )
+                    )
                 }
             </ul>
+            <button onClick={makeUpper}>Make All Upper</button>
         </div>
     );
 };
