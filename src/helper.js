@@ -6,4 +6,8 @@ function generateRandom(n) {
     return arr;
 }
 
-export {generateRandom};
+function sum(ticket) {
+    return ticket.reduce((total,crr)=>total+crr,0);
+}
+
+export {generateRandom, sum};

@@ -1,6 +1,6 @@
 import "./Lottery.css";
 import { useState } from "react";
-import { generateRandom } from "./helper.js";
+import { generateRandom, sum } from "./helper.js";
 
 export default function Lottery(){
     let [ticket, setTicket] = useState([0,0,7]);
@@ -8,16 +8,12 @@ export default function Lottery(){
         setTicket(generateRandom(3))
     }
 
-    let win = (ticket)=>{
-        return(
-            false
-        )
-    }
+    let win = sum(ticket) == 20;
 
     return(
         <div>
-            <h2>Lottery Game!</h2>
-            <h4>{win?"Abbabba lottery conjajulations brother":""}</h4>
+            <h2>Lottery Game</h2>
+            <h4>{win?"lottery conjajulations!":""}</h4>
             <div className="ticket">
                 <span>{ticket[0]}</span>
                 <span>{ticket[1]}</span>
