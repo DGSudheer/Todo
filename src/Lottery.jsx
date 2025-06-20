@@ -8,7 +8,7 @@ export default function Lottery(){
         setTicket(generateRandom(3))
     }
 
-    let win = sum(ticket) == 20;
+    let win = sum(ticket) == 10;
 
     return(
         <div>
@@ -24,3 +24,4 @@ export default function Lottery(){
         </div>
     )
 }
+
