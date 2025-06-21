@@ -6,11 +6,12 @@ import Ludoboard from "./Ludoboard.jsx";
 import TodoList from "./TodoList.jsx";
 import Todo from "./Todo.jsx";
 import Lottery from "./Lottery.jsx";
+import Form from "./Form.jsx";
 
 function App() {
   return (
     <>
-      <Lottery/>
+      <Form/>
     </>
   );
 }
